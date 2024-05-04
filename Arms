@@ -11,7 +11,7 @@ right_drive_smart = Motor(Ports.PORT10, GearSetting.RATIO_18_1, True)
 drivetrain = DriveTrain(left_drive_smart, right_drive_smart, 319.19, 295, 40, MM, 1)
 claw_motor = Motor(Ports.PORT3, GearSetting.RATIO_18_1, False)
 arm_motor = Motor(Ports.PORT8, GearSetting.RATIO_18_1, False)
-servo_a = Servo(brain.three_wire_port.a)
+servo_a = Servo(brain.three_wire_port.a) co tinh de confict kaka
 
 
 # wait for rotation sensor to fully initialize
