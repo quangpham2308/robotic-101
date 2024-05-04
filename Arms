@@ -1,0 +1,67 @@
+#region VEXcode Generated Robot Configuration
+from vex import *
+import urandom
+
+# Brain should be defined by default
+brain=Brain()
+
+# Robot configuration code
+left_drive_smart = Motor(Ports.PORT1, GearSetting.RATIO_18_1, False)
+right_drive_smart = Motor(Ports.PORT10, GearSetting.RATIO_18_1, True)
+drivetrain = DriveTrain(left_drive_smart, right_drive_smart, 319.19, 295, 40, MM, 1)
+claw_motor = Motor(Ports.PORT3, GearSetting.RATIO_18_1, False)
+arm_motor = Motor(Ports.PORT8, GearSetting.RATIO_18_1, False)
+servo_a = Servo(brain.three_wire_port.a)
+
+
+# wait for rotation sensor to fully initialize
+wait(30, MSEC)
+
+
+def play_vexcode_sound(sound_name):
+    # Helper to make playing sounds from the V5 in VEXcode easier and
+    # keeps the code cleaner by making it clear what is happening.
+    print("VEXPlaySound:" + sound_name)
+    wait(5, MSEC)
+
+# add a small delay to make sure we don't print in the middle of the REPL header
+wait(200, MSEC)
+# clear the console to make sure we don't have the REPL in the console
+print("\033[2J")
+
+#endregion VEXcode Generated Robot Configuration
+
+# ----------------------------------------------------------------------------
+#                                                                            
+#    Project:        Servo Movements                                         
+#    Description:    This example will show how to control a Servo Motor
+#    Configuration:  V5 Clawbot (Drivetrain 2-motor, No Gyro)
+#                    Servo Motor in 3-Wire Port A
+#                    Claw Motor in Port 3
+#                    Arm Motor in Port 8
+#                                                                            
+# ----------------------------------------------------------------------------
+
+# Library imports
+from vex import *
+
+# Begin project code
+# 3-Wire servos will move to a specific position and use all of their
+# mechanical strength to hold that position.
+servo_a.set_position(-50, DEGREES)
+wait(2, SECONDS)
+
+# Servos can move between -50 to +50 degrees, with zero as the center point
+servo_a.set_position(-25, DEGREES)
+wait(2, SECONDS)
+
+# Servo set position commands are non-waiting commands so a
+# wait statement is needed to wait for the move to complete
+servo_a.set_position(0, DEGREES)
+wait(2, SECONDS)
+
+servo_a.set_position(25, DEGREES)
+wait(2, SECONDS)
+
+servo_a.set_position(50, DEGREES)
+wait(2, SECONDS)

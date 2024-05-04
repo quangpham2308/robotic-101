@@ -1,0 +1,58 @@
+#region VEXcode Generated Robot Configuration
+from vex import *
+import urandom
+
+# Brain should be defined by default
+brain=Brain()
+
+# Robot configuration code
+left_drive_smart = Motor(Ports.PORT1, GearSetting.RATIO_18_1, False)
+right_drive_smart = Motor(Ports.PORT10, GearSetting.RATIO_18_1, True)
+drivetrain = DriveTrain(left_drive_smart, right_drive_smart, 319.19, 295, 40, MM, 1)
+
+
+# wait for rotation sensor to fully initialize
+wait(30, MSEC)
+
+
+def play_vexcode_sound(sound_name):
+    # Helper to make playing sounds from the V5 in VEXcode easier and
+    # keeps the code cleaner by making it clear what is happening.
+    print("VEXPlaySound:" + sound_name)
+    wait(5, MSEC)
+
+# add a small delay to make sure we don't print in the middle of the REPL header
+wait(200, MSEC)
+# clear the console to make sure we don't have the REPL in the console
+print("\033[2J")
+
+#endregion VEXcode Generated Robot Configuration
+
+# ----------------------------------------------------------------------------
+#                                                                            
+# 	Project:       Drivetrain Moves and Turns
+#	Description:   This example uses the drivetrain 
+#                  to drive and turn in different directions
+#  Configuration:  V5 Speedbot (Drivetrain 2-motor, No Gyro)       
+#                                                                            
+# ----------------------------------------------------------------------------
+
+# Library imports
+from vex import *
+
+# Begin project code
+# Driving Forward and Turning Right
+drivetrain.drive_for(FORWARD, 200, MM)
+drivetrain.turn_for(RIGHT, 90, DEGREES)
+
+# Driving Forward and Turning Left
+drivetrain.drive_for(FORWARD, 200, MM)
+drivetrain.turn_for(LEFT, 90, DEGREES)
+
+# Driving Reverse and Turning Left
+drivetrain.drive_for(REVERSE, 200, MM)
+drivetrain.turn_for(LEFT, 90, DEGREES)
+
+# Driving Forward and Turning Right
+drivetrain.drive_for(FORWARD, 200, MM)
+drivetrain.turn_for(RIGHT, 90, DEGREES)
